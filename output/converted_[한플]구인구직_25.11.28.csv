@@ -1,0 +1,415 @@
+﻿page_nm,page_id,lang_code,lang_name,trans_code,trans_content
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,passed,서류 통과
+구인구직 > 지원내역관리,FO-JOB-036,en,English,passed,Passed
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,passed,ជាប់
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,passed,उत्तीर्ण
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,passed,Passed
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,passed,Lolos
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,passed,Đạt
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,passed,উত্তীর্ণ
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,passed,通过
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,passed,O‘tdi
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,passed,සමත්
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,passed,ผ่าน
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,passed,အောင်မြင်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,passed,Пройдено
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,passed,کامیاب
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,passed,Тэнцсэн
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,passed,合格
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,passed,ຜ່ານ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,hired,최종 합격
+구인구직 > 지원내역관리,FO-JOB-036,en,English,hired,Hired
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,hired,ទទួលចូលធ្វើការ
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,hired,नियुक्त
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,hired,Hired
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,hired,Diterima
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,hired,Đã tuyển
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,hired,নিয়োগ হয়েছে
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,hired,录用
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,hired,Ishga qabul qilindi
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,hired,රැකියාවට බඳවා ඇත
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,hired,รับเข้าทำงาน
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,hired,အလုပ်ခန့်ထားပြီး
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,hired,Принят(а) на работу
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,hired,بھرتی کر لیا گیا
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,hired,Ажилд авсан
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,hired,採用
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,hired,ຮັບເຂົ້າທໍາງານ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,rejected,불합격
+구인구직 > 지원내역관리,FO-JOB-036,en,English,rejected,Rejected
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,rejected,បដិសេធ
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,rejected,अस्वीकृत
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,rejected,Rejected
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,rejected,Ditolak
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,rejected,Bị từ chối
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,rejected,প্রত্যাখ্যাত
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,rejected,拒绝
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,rejected,Rad etildi
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,rejected,ප්‍රතික්ෂේප කරන ලදී
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,rejected,ถูกปฏิเสธ
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,rejected,ငြင်းပယ်ခဲ့သည်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,rejected,Отклонено
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,rejected,مسترد
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,rejected,Татгалзсан
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,rejected,不採用
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,rejected,ຖືກປະຕິເສດ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,viewed,열람
+구인구직 > 지원내역관리,FO-JOB-036,en,English,viewed,Viewed
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,viewed,បានមើល
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,viewed,हेरिएको
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,viewed,Viewed
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,viewed,Dilihat
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,viewed,Đã xem
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,viewed,দেখা হয়েছে
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,viewed,已查看
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,viewed,Ko‘rildi
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,viewed,බැලී ඇත
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,viewed,ดูแล้ว
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,viewed,ကြည့်ပြီး
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,viewed,Просмотрено
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,viewed,دیکھا گیا
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,viewed,Үзсэн
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,viewed,閲覧済み
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,viewed,ເບິ່ງແລ້ວ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,details,지원상세
+구인구직 > 지원내역관리,FO-JOB-036,en,English,details,Details
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,details,ព័ត៌មានលម្អិត
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,details,विवरण
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,details,Details
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,details,Detail
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,details,Chi tiết
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,details,বিস্তারিত
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,details,详情
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,details,Tafsilotlar
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,details,විස්තර
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,details,รายละเอียด
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,details,အသေးစိတ်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,details,Подробнее
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,details,تفصیلات
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,details,Дэлгэрэнгүй
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,details,詳細
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,details,ລາຍລະອຽດ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,signNow,서명하기
+구인구직 > 지원내역관리,FO-JOB-036,en,English,signNow,Sign now
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,signNow,ចុះហត្ថលេខាឥឡូវនេះ
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,signNow,अहिले साइन गर्नुहोस्
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,signNow,Sign now
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,signNow,Tanda tangani sekarang
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,signNow,Ký ngay
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,signNow,এখনই সই করুন
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,signNow,立即签署
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,signNow,Hozir imzolang
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,signNow,දැන් අත්සන් කරන්න
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,signNow,เซ็นตอนนี้
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,signNow,ယခုပဲ လက်မှတ်ရေးဆောင်ရန်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,signNow,Подписать сейчас
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,signNow,ابھی دستخط کریں
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,signNow,Одоо гарын үсэг зурах
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,signNow,今すぐ署名
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,signNow,ເຊັນດຽວນີ້
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,appDetails,지원내역 상세
+구인구직 > 지원내역관리,FO-JOB-036,en,English,appDetails,Application Details
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,appDetails,ព័ត៌មានលម្អិតនៃការដាក់ពាក្យ
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,appDetails,आवेदन विवरण
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,appDetails,Application Details
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,appDetails,Rincian Lamaran
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,appDetails,Chi tiết hồ sơ
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,appDetails,আবেদনের বিবরণ
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,appDetails,申请详情
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,appDetails,Ariza tafsilotlari
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,appDetails,අයදුම් විස්තර
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,appDetails,รายละเอียดใบสมัคร
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,appDetails,လျှောက်လွှာ အသေးစိတ်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,appDetails,Подробности заявки
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,appDetails,درخواست کی تفصیلات
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,appDetails,Өргөдлийн дэлгэрэнгүй
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,appDetails,応募詳細
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,appDetails,ລາຍລະອຽດການສະໝັກ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,viewResume,지원 이력서 보기
+구인구직 > 지원내역관리,FO-JOB-036,en,English,viewResume,View Resume
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,viewResume,មើលប្រវត្តិរូប
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,viewResume,रिज्युमे हेर्नुहोस्
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,viewResume,View Resume
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,viewResume,Lihat CV
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,viewResume,Xem CV
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,viewResume,রিজিউমে দেখুন
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,viewResume,查看简历
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,viewResume,Rezyumeni ko‘rish
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,viewResume,CV බලන්න
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,viewResume,ดูเรซูเม่
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,viewResume,CV ကြည့်ရန်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,viewResume,Просмотреть резюме
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,viewResume,ریزومے دیکھیں
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,viewResume,CV-г харах
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,viewResume,履歴書を見る
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,viewResume,ເບິ່ງປະຫວັດການເຮັດວຽກ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,apply,지원
+구인구직 > 지원내역관리,FO-JOB-036,en,English,apply,Apply
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,apply,ដាក់ពាក្យ
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,apply,आवेदन गर्नुहोस्
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,apply,Apply
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,apply,Lamar
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,apply,Ứng tuyển
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,apply,আবেদন করুন
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,apply,申请
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,apply,Ariza berish
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,apply,අයදුම් කරන්න
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,apply,สมัครงาน
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,apply,လျှောက်ထားရန်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,apply,Подать заявку
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,apply,درخواست دیں
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,apply,Өргөдөл илгээх
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,apply,応募する
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,apply,ສະໝັກ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,signReq,서명 요청
+구인구직 > 지원내역관리,FO-JOB-036,en,English,signReq,Signature Request
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,signReq,សំណើសុំហត្ថលេខា
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,signReq,हस्ताक्षर अनुरोध
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,signReq,Signature Request
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,signReq,Permintaan Tanda Tangan
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,signReq,Yêu cầu chữ ký
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,signReq,স্বাক্ষর অনুরোধ
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,signReq,签名请求
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,signReq,Imzo so‘rovi
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,signReq,අත්සන් ඉල්ලීම
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,signReq,คำขอลายเซ็น
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,signReq,လက်မှတ် တောင်းဆိုချက်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,signReq,Запрос подписи
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,signReq,دستخط کی درخواست
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,signReq,Гарын үсгийн хүсэлт
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,signReq,署名依頼
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,signReq,ຄໍາຮ້ອງຂໍລາຍເຊັນ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,nnDaysLeftSignC,계약서 서명 가능 기한이 NN일 남았습니다!
+구인구직 > 지원내역관리,FO-JOB-036,en,English,nnDaysLeftSignC,NN days left to sign the contract!
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,nnDaysLeftSignC,នៅសល់ NN ថ្ងៃដើម្បីចុះហត្ថលេខាលើកិច្ចសន្យា!
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,nnDaysLeftSignC,करारमा हस्ताक्षर गर्न NN दिन बाँकी छ!
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,nnDaysLeftSignC,NN days left to sign the contract!
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,nnDaysLeftSignC,NN hari tersisa untuk menandatangani kontrak!
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,nnDaysLeftSignC,Còn NN ngày để ký hợp đồng!
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,nnDaysLeftSignC,চুক্তিতে সই করার জন্য NN দিন বাকি!
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,nnDaysLeftSignC,还有 NN 天可签署合同！
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,nnDaysLeftSignC,Shartnomani imzolash uchun NN kun qoldi!
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,nnDaysLeftSignC,ගිවිසුමට අත්සන් කිරීමට NN දින ඉතිරිව ඇත!
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,nnDaysLeftSignC,เหลือ NN วันในการเซ็นสัญญา!
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,nnDaysLeftSignC,စာချုပ်ကို လက်မှတ်ရေးရန် NN ရက်ကျန်သေးသည်!
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,nnDaysLeftSignC,"Осталось NN дней, чтобы подписать контракт!"
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,nnDaysLeftSignC,معاہدے پر دستخط کرنے کے لیے NN دن باقی ہیں!
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,nnDaysLeftSignC,Гэрээнд гарын үсэг зурахад NN өдөр үлдлээ!
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,nnDaysLeftSignC,契約書の署名期限まで残りNN日！
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,nnDaysLeftSignC,ເຫຼືອ NN ມື້ໃນການເຊັນສັນຍາ!
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,signReqCanceled,서명 요청 취소
+구인구직 > 지원내역관리,FO-JOB-036,en,English,signReqCanceled,Signature Request Canceled
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,signReqCanceled,បានបោះបង់សំណើសុំហត្ថលេខា
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,signReqCanceled,हस्ताक्षर अनुरोध रद्द गरियो
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,signReqCanceled,Signature Request Canceled
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,signReqCanceled,Permintaan Tanda Tangan Dibatalkan
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,signReqCanceled,Yêu cầu chữ ký đã hủy
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,signReqCanceled,স্বাক্ষর অনুরোধ বাতিল
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,signReqCanceled,签名请求已取消
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,signReqCanceled,Imzo so‘rovi bekor qilindi
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,signReqCanceled,අත්සන් ඉල්ලීම අහෝසි කර ඇත
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,signReqCanceled,ยกเลิกคำขอลายเซ็นแล้ว
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,signReqCanceled,လက်မှတ် တောင်းဆိုချက် ရုပ်သိမ်းခဲ့သည်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,signReqCanceled,Запрос подписи отменён
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,signReqCanceled,دستخط کی درخواست منسوخ کر دی گئی
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,signReqCanceled,Гарын үсгийн хүсэлтийг цуцалсан
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,signReqCanceled,署名依頼をキャンセルしました
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,signReqCanceled,ຍົກເລີກຄໍາຮ້ອງຂໍລາຍເຊັນແລ້ວ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,empCanceledSign,기업이 계약서 서명 요청을 취소했어요. 
+구인구직 > 지원내역관리,FO-JOB-036,en,English,empCanceledSign,The employer canceled the signature request.
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,empCanceledSign,និយោជកបានបោះបង់សំណើសុំហត្ថលេខា។
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,empCanceledSign,नियोक्ताले हस्ताक्षर अनुरोध रद्द गरेका छन्।
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,empCanceledSign,The employer canceled the signature request.
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,empCanceledSign,Perusahaan membatalkan permintaan tanda tangan.
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,empCanceledSign,Nhà tuyển dụng đã hủy yêu cầu chữ ký.
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,empCanceledSign,নিয়োগকর্তা স্বাক্ষর অনুরোধটি বাতিল করেছেন।
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,empCanceledSign,用人方已取消签名请求。
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,empCanceledSign,Ish beruvchi imzo so‘rovini bekor qildi.
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,empCanceledSign,නියෝජකයා අත්සන් ඉල්ලීම අහෝසි කළේය.
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,empCanceledSign,นายจ้างได้ยกเลิกคำขอลายเซ็นแล้ว
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,empCanceledSign,အလုပ်ရှင်က လက်မှတ်တောင်းဆိုချက်ကို ရုပ်သိမ်းခဲ့သည်။
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,empCanceledSign,Работодатель отменил запрос подписи.
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,empCanceledSign,آجر نے دستخط کی درخواست منسوخ کر دی ہے۔
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,empCanceledSign,Ажил олгогч гарын үсгийн хүсэлтийг цуцалсан.
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,empCanceledSign,企業が署名依頼をキャンセルしました。
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,empCanceledSign,ນາຍຈ້າງໄດ້ຍົກເລີກຄໍາຮ້ອງຂໍລາຍເຊັນ.
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,signDeclined,서명 거부
+구인구직 > 지원내역관리,FO-JOB-036,en,English,signDeclined,Signature Declined
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,signDeclined,ហត្ថលេខាត្រូវបានបដិសេធ
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,signDeclined,हस्ताक्षर अस्वीकृत
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,signDeclined,Signature Declined
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,signDeclined,Tanda Tangan Ditolak
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,signDeclined,Chữ ký bị từ chối
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,signDeclined,স্বাক্ষর প্রত্যাখ্যাত
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,signDeclined,签名被拒绝
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,signDeclined,Imzo rad etildi
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,signDeclined,අත්සන් කිරීම ප්‍රතික්ෂේප කරන ලදී
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,signDeclined,ปฏิเสธลายเซ็น
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,signDeclined,လက်မှတ်ကို ငြင်းပယ်ခဲ့သည်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,signDeclined,Подпись отклонена
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,signDeclined,دستخط مسترد کر دیے گئے
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,signDeclined,Гарын үсгийг татгалзсан
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,signDeclined,署名が拒否されました
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,signDeclined,ປະຕິເສດການເຊັນ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,canceledSign,계약서 서명을 취소했어요.
+구인구직 > 지원내역관리,FO-JOB-036,en,English,canceledSign,You canceled the signature.
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,canceledSign,អ្នកបានបោះបង់ហត្ថលេខា។
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,canceledSign,तपाईंले हस्ताक्षर रद्द गर्नुभयो।
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,canceledSign,You canceled the signature.
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,canceledSign,Anda membatalkan tanda tangan.
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,canceledSign,Bạn đã hủy chữ ký.
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,canceledSign,আপনি স্বাক্ষর বাতিল করেছেন।
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,canceledSign,您已取消签名。
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,canceledSign,Siz imzoni bekor qildingiz.
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,canceledSign,ඔබ අත්සන් කිරීම අහෝසි කළාය.
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,canceledSign,คุณได้ยกเลิกลายเซ็น
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,canceledSign,သင်သည် လက်မှတ်ကို ရုပ်သိမ်းခဲ့သည်။
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,canceledSign,Вы отменили подпись.
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,canceledSign,آپ نے دستخط منسوخ کر دیے۔
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,canceledSign,Та гарын үсгийг цуцалсан.
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,canceledSign,あなたが署名をキャンセルしました。
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,canceledSign,ທ່ານໄດ້ຍົກເລີກການເຊັນ.
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,expired,서명 기간 만료
+구인구직 > 지원내역관리,FO-JOB-036,en,English,expired,Expired
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,expired,ផុតកំណត់
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,expired,म्याद सकियो
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,expired,Expired
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,expired,Kedaluwarsa
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,expired,Hết hạn
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,expired,মেয়াদোত্তীর্ণ
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,expired,已过期
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,expired,Muddati o‘tgan
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,expired,කල් ඉකුත් විය
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,expired,หมดอายุ
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,expired,သက်တမ်းကုန်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,expired,Истёк срок
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,expired,میعاد ختم
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,expired,Хугацаа дууссан
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,expired,期限切れ
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,expired,ໝົດອາຍຸ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,signPeriodExpir,"계약서 서명 기간이 만료되었어요, 담당자에게 문의하세요."
+구인구직 > 지원내역관리,FO-JOB-036,en,English,signPeriodExpir,The signature period has expired. Please contact your recruiter.
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,signPeriodExpir,រយៈពេលចុះហត្ថលេខាផុតកំណត់ហើយ។ សូមទាក់ទងអ្នកជ្រើសរើសរបស់អ្នក។
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,signPeriodExpir,हस्ताक्षर गर्ने अवधि समाप्त भएको छ। कृपया आफ्नो भर्तीकर्तालाई सम्पर्क गर्नुहोस्।
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,signPeriodExpir,The signature period has expired. Please contact your recruiter.
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,signPeriodExpir,Periode tanda tangan telah berakhir. Silakan hubungi perekrut Anda.
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,signPeriodExpir,Thời hạn ký đã hết. Vui lòng liên hệ với người tuyển dụng của bạn.
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,signPeriodExpir,স্বাক্ষরের সময়সীমা শেষ হয়েছে। দয়া করে আপনার নিয়োগকারীর সাথে যোগাযোগ করুন।
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,signPeriodExpir,签名期限已过。请联系您的招聘人员。
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,signPeriodExpir,"Imzolash muddati tugadi. Iltimos, yollovchingiz bilan bog‘ланинг."
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,signPeriodExpir,අත්සන් කාලය අවසන් වී ඇත. කරුණාකර ඔබගේ බඳවා ගැනීමේ නියෝජිතයා සමග සම්බන්ධ වන්න.
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,signPeriodExpir,ระยะเวลาสำหรับลายเซ็นหมดอายุแล้ว โปรดติดต่อผู้สรรหา
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,signPeriodExpir,လက်မှတ်ရေးဆောင်ရန် ကာလ သက်တမ်းကုန်ပါပြီ။ ကျေးဇူးပြု၍ သင့်အလုပ်အကိုင် ညှိနှိုင်းသူနှင့် ဆက်သွယ်ပါ။
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,signPeriodExpir,"Срок для подписи истёк. Пожалуйста, свяжитесь с вашим рекрутером."
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,signPeriodExpir,دستخط کی مدت ختم ہو گئی ہے۔ براہِ کرم اپنے ریکروٹر سے رابطہ کریں۔
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,signPeriodExpir,Гарын үсэг зурах хугацаа дууссан байна. Хүний нөөцийн ажилтантайгаа холбогдоно уу.
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,signPeriodExpir,署名期間が終了しました。リクルーターに連絡してください。
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,signPeriodExpir,ໄລຍະເວລາເຊັນໝົດອາຍຸແລ້ວ. ກະລຸນາຕິດຕໍ່ຜູ້ສັນຫາພະນັກງານຂອງທ່ານ.
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,contractComplet,계약이 완료 되었어요. 
+구인구직 > 지원내역관리,FO-JOB-036,en,English,contractComplet,Contract Completed
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,contractComplet,កិច្ចសន្យាសម្រេចរួច
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,contractComplet,सम्झौता सम्पन्न
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,contractComplet,Contract Completed
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,contractComplet,Kontrak Selesai
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,contractComplet,Hợp đồng hoàn tất
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,contractComplet,চুক্তি সম্পন্ন
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,contractComplet,合同已完成
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,contractComplet,Shartnoma yakunlandi
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,contractComplet,ගිවිසුම සම්පූර්ණයි
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,contractComplet,สัญญาเสร็จสมบูรณ์
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,contractComplet,စာချုပ် ပြီးစီးထားသည်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,contractComplet,Контракт завершён
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,contractComplet,معاہدہ مکمل ہو گیا
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,contractComplet,Гэрээ дууссан
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,contractComplet,契約完了
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,contractComplet,ສັນຍາສໍາເລັດ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,contractEnded,계약 종료
+구인구직 > 지원내역관리,FO-JOB-036,en,English,contractEnded,Contract Ended
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,contractEnded,កិច្ចសន្យាបញ្ចប់
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,contractEnded,सम्झौता समाप्त
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,contractEnded,Contract Ended
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,contractEnded,Kontrak Berakhir
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,contractEnded,Hợp đồng đã kết thúc
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,contractEnded,চুক্তি শেষ
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,contractEnded,合同已结束
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,contractEnded,Shartnoma tugadi
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,contractEnded,ගිවිසුම අවසන් වී ඇත
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,contractEnded,สัญญาสิ้นสุด
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,contractEnded,စာချုပ် အဆုံးသတ်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,contractEnded,Контракт прекращён
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,contractEnded,معاہدہ ختم ہو گیا
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,contractEnded,Гэрээ дуусгавар болсон
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,contractEnded,契約終了
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,contractEnded,ສັນຍາສິ້ນສຸດ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,contractTermina,계약이 종료 되었어요. 
+구인구직 > 지원내역관리,FO-JOB-036,en,English,contractTermina,The contract has been terminated.
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,contractTermina,កិច្ចសន្យាត្រូវបានលុបចោល។
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,contractTermina,सम्झौता रद्द गरिएको छ।
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,contractTermina,The contract has been terminated.
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,contractTermina,Kontrak telah dihentikan.
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,contractTermina,Hợp đồng đã bị chấm dứt.
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,contractTermina,চুক্তিটি বাতিল করা হয়েছে।
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,contractTermina,合同已终止。
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,contractTermina,Shartnoma bekor qilindi.
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,contractTermina,ගිවිසුම අහෝසි කර ඇත.
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,contractTermina,สัญญาถูกยกเลิก
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,contractTermina,စာချုပ် ပယ်ဖျက်ခဲ့သည်။
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,contractTermina,Контракт расторгнут.
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,contractTermina,معاہدہ منسوخ کر دیا گیا ہے۔
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,contractTermina,Гэрээг цуцалсан.
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,contractTermina,契約は解除されました。
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,contractTermina,ສັນຍາຖືກຍົກເລີກ.
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,signContract,계약서 서명하기
+구인구직 > 지원내역관리,FO-JOB-036,en,English,signContract,Sign Contract
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,signContract,ចុះហត្ថលេខាលើកិច្ចសន្យា
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,signContract,सम्झौतामा हस्ताक्षर गर्नुहोस्
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,signContract,Sign Contract
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,signContract,Tanda Tangani Kontrak
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,signContract,Ký hợp đồng
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,signContract,চুক্তিতে সই করুন
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,signContract,签署合同
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,signContract,Shartnomani imzolash
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,signContract,ගිවිසුම අත්සන් කරන්න
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,signContract,เซ็นสัญญา
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,signContract,စာချုပ် လက်မှတ်ရေးရန်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,signContract,Подписать контракт
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,signContract,معاہدے پر دستخط کریں
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,signContract,Гэрээг гарын үсэг зурах
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,signContract,契約に署名
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,signContract,ເຊັນສັນຍາ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,viewContract,계약서 확인하기
+구인구직 > 지원내역관리,FO-JOB-036,en,English,viewContract,View Contract
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,viewContract,មើលកិច្ចសន្យា
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,viewContract,सम्झौता हेर्नुहोस्
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,viewContract,View Contract
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,viewContract,Lihat Kontrak
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,viewContract,Xem hợp đồng
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,viewContract,চুক্তি দেখুন
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,viewContract,查看合同
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,viewContract,Shartnomani ko‘rish
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,viewContract,ගිවිසුම බලන්න
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,viewContract,ดูสัญญา
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,viewContract,စာချုပ် ကြည့်ရန်
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,viewContract,Просмотреть контракт
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,viewContract,معاہدہ دیکھیں
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,viewContract,Гэрээг харах
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,viewContract,契約を表示
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,viewContract,ເບິ່ງສັນຍາ
+구인구직 > 지원내역관리,FO-JOB-036,ko,한국어,recomNewJobOpps,새로운 일자리를 추천해드릴게요!
+구인구직 > 지원내역관리,FO-JOB-036,en,English,recomNewJobOpps,We’ll recommend new job opportunities!
+구인구직 > 지원내역관리,FO-JOB-036,km,캄보디아어,recomNewJobOpps,យើងនឹងផ្តល់អនុសាសន៍ឱកាសការងារថ្មីៗ!
+구인구직 > 지원내역관리,FO-JOB-036,ne,네팔어,recomNewJobOpps,हामी नयाँ रोजगारीका अवसरहरू सिफारिस गर्नेछौँ!
+구인구직 > 지원내역관리,FO-JOB-036,tl,필리핀어,recomNewJobOpps,We’ll recommend new job opportunities!
+구인구직 > 지원내역관리,FO-JOB-036,id,인도네시아어,recomNewJobOpps,Kami akan merekomendasikan peluang kerja baru!
+구인구직 > 지원내역관리,FO-JOB-036,vi,베트남어,recomNewJobOpps,Chúng tôi sẽ gợi ý cơ hội việc làm mới!
+구인구직 > 지원내역관리,FO-JOB-036,bn,방글라데시어,recomNewJobOpps,আমরা আপনাকে নতুন চাকরির সুযোগ সুপারিশ করব!
+구인구직 > 지원내역관리,FO-JOB-036,zh,중국어,recomNewJobOpps,我们将为您推荐新的职位机会！
+구인구직 > 지원내역관리,FO-JOB-036,uz,우즈베키스탄어,recomNewJobOpps,Sizga yangi ish imkoniyatlarini tavsiya qilamiz!
+구인구직 > 지원내역관리,FO-JOB-036,si,스리랑카어,recomNewJobOpps,අපි ඔබට නව රැකියා අවස්ථා සిఫාරසු කරමු!
+구인구직 > 지원내역관리,FO-JOB-036,th,태국어,recomNewJobOpps,เราจะแนะนำงานใหม่ให้คุณ!
+구인구직 > 지원내역관리,FO-JOB-036,my,미얀마어,recomNewJobOpps,ကျွန်ုပ်တို့သည် အလုပ်အကိုင်အခွင့်အလမ်းအသစ်များကို သင့်ထံ အကြံပြုမည်!
+구인구직 > 지원내역관리,FO-JOB-036,ru,러시아어,recomNewJobOpps,Мы будем рекомендовать вам новые вакансии!
+구인구직 > 지원내역관리,FO-JOB-036,ur,파키스탄어,recomNewJobOpps,ہم آپ کو نئی ملازمت کے مواقع تجویز کریں گے!
+구인구직 > 지원내역관리,FO-JOB-036,mn,몽골어,recomNewJobOpps,Бид танд шинэ ажлын боломжуудыг санал болгоно!
+구인구직 > 지원내역관리,FO-JOB-036,ja,일본어,recomNewJobOpps,新しい求人をご紹介します！
+구인구직 > 지원내역관리,FO-JOB-036,lo,라오스어,recomNewJobOpps,ພວກເຮົາຈະແນະນໍາໂອກາດວຽກໃໝ່ໃຫ້ທ່ານ!

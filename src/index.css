@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard", sans-serif;
+
+  /* 애니메이션 정의 */
+  --animate-fade-in-up: fadeInUp 0.5s ease-out;
+  --animate-fade-in: fadeIn 0.5s ease-out;
+  --animate-slide-down: slideDown 0.3s ease-out;
+  --animate-progress-indeterminate: progressIndeterminate 1.5s infinite linear;
+  --animate-bounce-slow: bounce 3s infinite;
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes progressIndeterminate {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+/* 기본 스타일 */
+body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import * as XLSX from "xlsx";
 
 import {
@@ -14,9 +14,15 @@ import {
   ImageIcon,
   HelpCircle,
   Download,
+  CheckSquare,
+  Square,
+  Lock,
+  LogOut,
 } from "lucide-react";
 import excelConverter from "./utils/excel-converter";
+import { SEARCH } from "./constants/search.constants";
 const EXAMPLE_IMAGE_URL = "./src/assets/set_pageId_example.png";
+const API_BASE_URL = "/api/v1/trans/list"; // CORS 해결을 위한 Proxy 경로 설정
 
 // #region Components
 interface StepItemProps {
@@ -522,13 +528,363 @@ function UploadPage({
 }
 
 function SearchPage() {
+  const [token, setToken] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+
+  // Search Filters State
+  const [selectedLangs, setSelectedLangs] = useState<string[]>([]);
+  const [pageCategoryValue, setPageCategoryValue] = useState(""); // Stores 'value' like FO-HP-COM
+  const [directPageId, setDirectPageId] = useState("");
+  const [transCode, setTransCode] = useState("");
+  const [transContent, setTransContent] = useState("");
+
+  const headersRef = useRef<Headers>(new Headers());
+
+  // 체크: 컴포넌트 마운트 시 세션스토리지 토큰 확인
+  useEffect(() => {
+    const storedToken = sessionStorage.getItem("authToken");
+    if (storedToken) {
+      headersRef.current.set("Authorization", `Bearer ${storedToken}`);
+      headersRef.current.set("Accept-Language", "ko");
+      setToken(storedToken);
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = (inputToken: string) => {
+    if (!inputToken) return;
+
+    // 토큰 세션스토리지 저장
+    sessionStorage.setItem("authToken", inputToken);
+
+    // API 통신 준비
+    headersRef.current.set("Authorization", `Bearer ${inputToken}`);
+    headersRef.current.set("Accept-Language", "ko");
+
+    setToken(inputToken);
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    if (window.confirm("로그아웃 하겠습니까?")) {
+      sessionStorage.removeItem("authToken");
+      setToken("");
+      setIsAuthenticated(false);
+      headersRef.current.delete("Authorization");
+    }
+  };
+
+  const toggleLang = (value: string) => {
+    if (value === "ALL") {
+      if (selectedLangs.length === SEARCH.LANG_OPTIONS.length) {
+        setSelectedLangs([]);
+      } else {
+        setSelectedLangs(SEARCH.LANG_OPTIONS.map((opt) => opt.value));
+      }
+      return;
+    }
+
+    if (selectedLangs.includes(value)) {
+      setSelectedLangs(selectedLangs.filter((l) => l !== value));
+    } else {
+      setSelectedLangs([...selectedLangs, value]);
+    }
+  };
+
+  const handleSearch = async () => {
+    if (selectedLangs.length === 0) {
+      alert("언어를 하나 이상 선택해주세요.");
+      return;
+    }
+
+    setIsSearching(true);
+    const finalPageId = isDirectInput ? directPageId : pageCategoryValue;
+
+    // 선택된 언어 개수만큼 반복 요청
+    const promises = selectedLangs.map(async (langCode) => {
+      const requestBody = {
+        langCode: langCode,
+        pageId: finalPageId,
+        transCode: transCode,
+        transContent: transContent,
+      };
+
+      try {
+        // Proxy된 경로 사용
+        const response = await fetch(API_BASE_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+            "Accept-Language": "ko",
+          },
+          body: JSON.stringify(requestBody), // 수정된 requestBody 전송
+          referrerPolicy: "no-referrer",
+        });
+
+        if (!response.ok) {
+          // 에러 메시지 상세 확인을 위해 text로 읽어보기
+          const errorText = await response.text();
+          console.error(`API Error (${langCode}):`, response.status, errorText);
+          throw new Error(`API Error: ${response.status} ${errorText}`);
+        }
+
+        const data = await response.json();
+        return { lang: langCode, success: true, data };
+      } catch (error: any) {
+        console.error(`Request failed for ${langCode}:`, error);
+        return { lang: langCode, success: false, error };
+      }
+    });
+
+    const results = await Promise.all(promises);
+
+    // 간단한 결과 처리 (모든 요청 완료 후)
+    const hasErrors = results.some((r) => !r.success);
+
+    if (hasErrors) {
+      // 실패가 하나라도 있으면 확인 메시지
+      const confirmMsg =
+        "검색 결과가 없거나 오류가 발생했습니다.\n콘솔 로그에서 상세 내용을 확인해주세요.";
+      window.confirm(confirmMsg);
+    } else {
+      console.log("All searches successful:", results);
+      // TODO: 결과 데이터를 화면에 그리는 로직 추가
+    }
+
+    setIsSearching(false);
+  };
+
+  const isDirectInput = pageCategoryValue === "DIRECT";
+  // 검색 버튼 활성화 조건:
+  // 1. Page ID가 선택되어 있어야 함 (값 존재)
+  // 2. 만약 직접입력이면, 입력값이 비어있지 않아야 함
+  const isSearchEnabled =
+    pageCategoryValue !== "" && (!isDirectInput || directPageId.trim() !== "");
+
   return (
-    <div className="flex flex-col items-center justify-center h-[60vh] text-center space-y-4 animate-fade-in">
-      <div className="bg-indigo-100 p-6 rounded-full">
-        <SearchIcon size={64} className="text-indigo-500" />
+    <div className="relative min-h-[60vh]">
+      {/* Login Modal */}
+      {!isAuthenticated && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60 backdrop-blur-md rounded-xl">
+          <div className="bg-white p-8 rounded-2xl shadow-2xl border border-slate-100 w-full max-w-md animate-slide-up">
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-indigo-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Lock className="text-indigo-500" size={32} />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-800">로그인</h2>
+              <p className="text-slate-500 mt-2 text-sm">
+                서비스 이용을 위해 토큰을 입력해주세요.
+              </p>
+            </div>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const input = (e.target as any).token.value;
+                handleLogin(input);
+              }}
+              className="space-y-4"
+            >
+              <div>
+                <input
+                  name="token"
+                  type="password"
+                  placeholder="Access Token 입력"
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all text-slate-800 placeholder:text-slate-400"
+                  autoFocus
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg transition-colors shadow-md hover:shadow-lg transform active:scale-[0.98]"
+              >
+                로그인
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Main Search UI */}
+      <div
+        className={`space-y-6 transition-opacity duration-500 ${
+          isAuthenticated ? "opacity-100" : "opacity-20 pointer-events-none"
+        }`}
+      >
+        {/* Top Bar with Logout Button */}
+        <div className="flex justify-end">
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium px-3 py-2 rounded-lg hover:bg-slate-100"
+          >
+            <LogOut size={16} />
+            로그아웃
+          </button>
+        </div>
+
+        {/* 1. Language Filter */}
+        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-4">
+          <h3 className="font-bold text-slate-800 flex items-center gap-2">
+            <span className="w-1 h-5 bg-indigo-500 rounded-full"></span>
+            언어 선택
+          </h3>
+          <div className="flex flex-wrap gap-3">
+            {/* 전체 버튼 */}
+            <button
+              onClick={() => toggleLang("ALL")}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm border transition-all ${
+                selectedLangs.length === SEARCH.LANG_OPTIONS.length
+                  ? "bg-slate-800 border-slate-800 text-white font-medium"
+                  : "bg-white border-slate-300 text-slate-600 hover:bg-slate-50"
+              }`}
+            >
+              {selectedLangs.length === SEARCH.LANG_OPTIONS.length ? (
+                <CheckSquare size={16} />
+              ) : (
+                <Square size={16} />
+              )}
+              전체
+            </button>
+
+            {SEARCH.LANG_OPTIONS.map((lang) => {
+              const isSelected = selectedLangs.includes(lang.value);
+              return (
+                <button
+                  key={lang.value}
+                  onClick={() => toggleLang(lang.value)}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm border transition-all ${
+                    isSelected
+                      ? "bg-indigo-50 border-indigo-500 text-indigo-700 font-medium"
+                      : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+                  }`}
+                >
+                  {isSelected ? (
+                    <CheckSquare size={16} />
+                  ) : (
+                    <Square size={16} />
+                  )}
+                  {lang.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 2. Search Form */}
+        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+          <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-6">
+            <span className="w-1 h-5 bg-indigo-500 rounded-full"></span>
+            검색 조건
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
+            {/* Page Category Select (selectbox1) */}
+            <div className="lg:col-span-3 space-y-1.5">
+              <label className="text-sm font-medium text-slate-700">
+                Page Name
+              </label>
+              <div className="relative">
+                <select
+                  value={pageCategoryValue}
+                  onChange={(e) => setPageCategoryValue(e.target.value)}
+                  className="w-full pl-3 pr-8 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none appearance-none bg-white text-sm text-slate-800"
+                >
+                  <option value="">선택해주세요</option>
+                  {SEARCH.PAGE_CATEGORIES()?.map((cat, idx) => (
+                    <option key={idx} value={cat.value}>
+                      {cat.name}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 pointer-events-none"
+                  size={16}
+                />
+              </div>
+            </div>
+
+            {/* Page ID Input (input1) - Conditional */}
+            <div className="lg:col-span-2 space-y-1.5">
+              <label
+                className={`text-sm font-medium ${
+                  isDirectInput ? "text-slate-700" : "text-slate-400"
+                }`}
+              >
+                Page ID (직접입력)
+              </label>
+              <input
+                type="text"
+                value={directPageId}
+                onChange={(e) => setDirectPageId(e.target.value)}
+                disabled={!isDirectInput}
+                placeholder={isDirectInput ? "Page ID 입력" : "-"}
+                className={`w-full px-3 py-2.5 rounded-lg border outline-none text-sm transition-colors ${
+                  isDirectInput
+                    ? "border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 bg-white text-slate-800"
+                    : "border-slate-200 bg-slate-100 text-slate-400 cursor-not-allowed"
+                }`}
+              />
+            </div>
+
+            {/* Trans Code Input (input2) */}
+            <div className="lg:col-span-2 space-y-1.5">
+              <label className="text-sm font-medium text-slate-700">
+                Trans Code
+              </label>
+              <input
+                type="text"
+                value={transCode}
+                onChange={(e) => setTransCode(e.target.value)}
+                placeholder="코드 입력"
+                className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none text-sm text-slate-800"
+              />
+            </div>
+
+            {/* Trans Content Input (input3) */}
+            <div className="lg:col-span-3 space-y-1.5">
+              <label className="text-sm font-medium text-slate-700">
+                Trans Contents
+              </label>
+              <input
+                type="text"
+                value={transContent}
+                onChange={(e) => setTransContent(e.target.value)}
+                placeholder="내용 입력"
+                className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none text-sm text-slate-800"
+              />
+            </div>
+
+            {/* Search Button */}
+            <div className="lg:col-span-2">
+              <button
+                onClick={handleSearch}
+                disabled={!isSearchEnabled || isSearching}
+                className={`w-full font-bold py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm ${
+                  isSearchEnabled && !isSearching
+                    ? "bg-indigo-600 hover:bg-indigo-700 text-white transform active:scale-[0.98]"
+                    : "bg-slate-300 text-slate-500 cursor-not-allowed"
+                }`}
+              >
+                {isSearching ? (
+                  <Loader2 className="animate-spin" size={18} />
+                ) : (
+                  <SearchIcon size={18} />
+                )}
+                검색
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Search Results (Placeholder) */}
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 min-h-[300px] flex items-center justify-center flex-col gap-4 text-slate-400">
+          <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center">
+            <SearchIcon size={32} className="text-slate-300" />
+          </div>
+          <p>검색 조건을 입력하고 검색 버튼을 눌러주세요.</p>
+        </div>
       </div>
-      <h2 className="text-3xl font-bold text-slate-800">Coming Soon</h2>
-      <p className="text-slate-500 text-lg">준비중입니다</p>
     </div>
   );
 }

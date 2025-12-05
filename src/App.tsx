@@ -538,7 +538,11 @@ function UploadPage({
   );
 }
 
-function SearchPage() {
+function SearchPage({
+  showToast,
+}: {
+  showToast: (type: "success" | "error", text: string) => void;
+}) {
   const [token, setToken] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
@@ -609,7 +613,7 @@ function SearchPage() {
 
   const handleSearch = async () => {
     if (selectedLangs.length === 0) {
-      alert("언어를 하나 이상 선택해주세요.");
+      showToast("error", "언어를 하나 이상 선택해주세요.");
       return;
     }
 
@@ -670,7 +674,10 @@ function SearchPage() {
     setSearchResults(aggregatedData);
 
     if (hasErrors && aggregatedData.length === 0) {
-      alert("오류가 발생했습니다. 콘솔 로그에서 상세 내용을 확인해주세요.");
+      showToast(
+        "error",
+        "오류가 발생했습니다. 콘솔 로그에서 상세 내용을 확인해주세요."
+      );
     }
 
     setIsSearching(false);
@@ -678,7 +685,7 @@ function SearchPage() {
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
-    alert("복사되었습니다.");
+    showToast("success", "복사되었습니다.");
   };
 
   const isDirectInput = pageCategoryValue === "DIRECT";
@@ -910,8 +917,7 @@ function SearchPage() {
               </h3>
               <p className="text-xs text-slate-500 flex items-center gap-1">
                 <Copy size={10} />
-                Trans Coded, Trans Content 컬럼을 클릭하여 텍스트를
-                복사해보세요!
+                TRANS CODE, TRANS CONTENT 컬럼의 텍스트를 클릭하여 복사해보세요!
               </p>
             </div>
             {hasSearched && (
@@ -1080,7 +1086,7 @@ export default function App() {
         {activeIndex === 0 ? (
           <UploadPage showToast={showToast} />
         ) : (
-          <SearchPage />
+          <SearchPage showToast={showToast} />
         )}
       </div>
     </div>

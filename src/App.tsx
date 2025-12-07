@@ -21,51 +21,16 @@ import {
   Database,
   Copy,
 } from "lucide-react";
-import excelConverter from "./utils/excel-converter";
-import { SEARCH } from "./constants/search.constants";
+import excelConverter from "./shared/utils/excel-converter";
+import StepItem from "./shared/components/StepItem";
+import { SEARCH } from "./core/constants/search.constants";
+import Tab from "./shared/components/Tab";
+import Toast from "./shared/components/Toast";
 const EXAMPLE_IMAGE_URL = "./src/assets/set_pageId_example.png";
 const API_BASE_URL = "/api/v1/trans/list"; // CORS 해결을 위한 Proxy 경로 설정
 
-// #region Components
-interface StepItemProps {
-  icon: React.ReactNode;
-  title: string;
-  desc: string;
-  tips?: (string | React.ReactNode)[]; // Updated to accept React Nodes
-  actions?: React.ReactNode;
-}
-
-function StepItem({ icon, title, desc, tips, actions }: StepItemProps) {
-  return (
-    <>
-      <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-lg border border-slate-100">
-        <div className="w-16 h-16 bg-white flex items-center justify-center rounded-md border border-slate-200 shadow-sm shrink-0">
-          {icon}
-        </div>
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-1 flex-wrap">
-            <h3 className="font-bold text-slate-800">{title}</h3>
-            {actions && actions}
-          </div>
-          <p className="text-slate-600 text-sm leading-relaxed">{desc}</p>
-          {tips && tips.length > 0 && (
-            <ul className="mt-3 space-y-1.5 bg-white p-3 rounded-md border border-slate-200 text-sm text-slate-600 shadow-sm">
-              {tips.map((tip, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <span className="text-indigo-400 mt-0.5 shrink-0">•</span>
-                  <span>{tip}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
-    </>
-  );
-}
-// #endregion
-
 // #region Page
+// TODO: pgae / service 분리하기
 // 다국어 조회 목록 > 아이템
 interface TranslationItem {
   transCode: string;
@@ -1012,74 +977,30 @@ function SearchPage({
 // #endregion
 
 export default function App() {
+  // #region Header Tab
   const [activeIndex, setActiveIndex] = useState(0);
-  const [toastMsg, setToastMsg] = useState<{
+  // #endregion
+
+  // #region Toast Notification
+  // TODO: useHook 으로 만들기
+  const [toast, setToast] = useState<{
     type: "success" | "error";
     text: string;
   } | null>(null);
 
   const showToast = (type: "success" | "error", text: string) => {
-    setToastMsg({ type, text });
-    setTimeout(() => setToastMsg(null), 3000);
+    setToast({ type, text });
+    setTimeout(() => setToast(null), 3000);
   };
+  // #endregion
 
   return (
     <div className="min-h-screen bg-slate-50 font-['Pretendard'] text-slate-900 flex flex-col">
       {/* Toast Notification */}
-      {toastMsg && (
-        <div
-          className={`fixed top-4 right-4 z-[100] px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-fade-in-down ${
-            toastMsg.type === "success"
-              ? "bg-green-600 text-white"
-              : "bg-red-600 text-white"
-          }`}
-        >
-          {toastMsg.type === "success" ? (
-            <CheckCircle2 size={20} />
-          ) : (
-            <X size={20} />
-          )}
-          <span className="font-medium">{toastMsg.text}</span>
-        </div>
-      )}
+      {toast && <Toast data={toast} />}
 
-      {/* Header / Nav */}
-      <div className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex border-b border-slate-200">
-            <button
-              type="button"
-              onClick={() => setActiveIndex(0)}
-              className={`flex items-center gap-2 px-6 py-4 text-sm font-medium transition-colors relative cursor-pointer ${
-                activeIndex === 0
-                  ? "text-indigo-600"
-                  : "text-slate-500 hover:text-slate-700"
-              }`}
-            >
-              <Upload size={18} />
-              Upload
-              {activeIndex === 0 && (
-                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600" />
-              )}
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveIndex(1)}
-              className={`flex items-center gap-2 px-6 py-4 text-sm font-medium transition-colors relative cursor-pointer ${
-                activeIndex === 1
-                  ? "text-indigo-600"
-                  : "text-slate-500 hover:text-slate-700"
-              }`}
-            >
-              <SearchIcon size={18} />
-              Search
-              {activeIndex === 1 && (
-                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600" />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* Header Tab */}
+      <Tab activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto w-full p-6 mt-4 flex-1">

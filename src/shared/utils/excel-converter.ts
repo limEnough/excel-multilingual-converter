@@ -1,6 +1,6 @@
 import * as XLSX from "xlsx";
-import { LANG } from "../constants/lang.constants";
-import { TRANS } from "../constants/trans.constants";
+import { LANG } from "../../core/constants/lang.constants";
+import { TRANS } from "../../core/constants/trans.constants";
 
 const excelConverter = {
   normalizeKey: (str: any): string => {

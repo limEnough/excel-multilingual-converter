@@ -1,3 +1,7 @@
+/**
+ * TODO: 로그인 로그아웃 토큰
+ * 최상단으로 빼기!
+ */
 import React, { useState, useRef, useEffect } from "react";
 import * as XLSX from "xlsx";
 
@@ -26,6 +30,7 @@ import StepItem from "./shared/components/StepItem";
 import { SEARCH } from "./core/constants/search.constants";
 import Tab from "./shared/components/Tab";
 import Toast from "./shared/components/Toast";
+import SwaggerTypePicker from "./pages/SwaggerTypePicker";
 const EXAMPLE_IMAGE_URL = "./src/assets/set_pageId_example.png";
 const API_BASE_URL = "/api/v1/trans/list"; // CORS 해결을 위한 Proxy 경로 설정
 
@@ -153,16 +158,17 @@ function UploadPage({
   };
 
   return (
-    <div className="space-y-8 animate-fade-in-up">
+    <div className="space-y-8 animate-fade-in-up relative min-h-[60vh] pb-10">
+      {/* Title */}
       <div className="text-center space-y-2 mb-8">
         <h1 className="text-3xl font-bold text-slate-800 tracking-tight">
           Excel Multi-Language Converter
         </h1>
         <p className="text-slate-500">
-          엑셀 파일을 업로드하여 다국어 포맷으로 변환하세요.
+          엑셀 파일을 업로드하여 다국어 포맷으로 변환합니다.
         </p>
       </div>
-
+      {/* Guide */}
       <div className="border border-slate-200 rounded-lg bg-white shadow-sm overflow-hidden">
         <button
           onClick={() => setIsGuideOpen(!isGuideOpen)}
@@ -235,8 +241,112 @@ function UploadPage({
           </div>
         )}
       </div>
-
-      {/* Page ID Guide Modal */}
+      {/* Converter */}
+      <div className="bg-white rounded-xl shadow-lg border-t-4 border-t-indigo-500 p-8">
+        <div className="flex flex-col items-center space-y-6">
+          {!isConverting && !resultFiles && (
+            <>
+              <div className="w-24 h-24 bg-indigo-50 rounded-full flex items-center justify-center mb-2 animate-bounce-slow">
+                <Upload size={40} className="text-indigo-600" />
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-slate-800 mb-2">
+                  엑셀 파일 업로드
+                </h3>
+                <p className="text-slate-500 text-sm max-w-xs mx-auto mb-6">
+                  지원 형식: .xlsx, .xls
+                </p>
+                <input
+                  type="file"
+                  accept=".xlsx, .xls"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                  ref={fileInputRef}
+                  id="excel-upload"
+                />
+                <label
+                  htmlFor="excel-upload"
+                  className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg shadow-md transition-all cursor-pointer hover:shadow-lg transform hover:-translate-y-0.5"
+                >
+                  <Upload size={18} />
+                  <span>파일 선택하기</span>
+                </label>
+              </div>
+            </>
+          )}
+          {isConverting && (
+            <div className="w-full max-w-md text-center space-y-6 py-8">
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Loader2 size={48} className="animate-spin text-indigo-500" />
+                </div>
+                <div className="w-16 h-16 mx-auto rounded-full border-4 border-indigo-100"></div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-slate-800">
+                  변환 중입니다...
+                </h3>
+                <p className="text-slate-400 text-sm mt-1">
+                  잠시만 기다려주세요.
+                </p>
+              </div>
+              <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                <div className="h-full bg-indigo-500 animate-progress-indeterminate"></div>
+              </div>
+            </div>
+          )}
+          {resultFiles && !isConverting && (
+            <div className="w-full max-w-md text-center space-y-8 animate-fade-in py-4">
+              <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto border-2 border-green-100">
+                <CheckCircle2 size={40} className="text-green-500" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-800">
+                  변환 완료!
+                </h3>
+                <p className="text-slate-500 mt-1 font-mono text-sm bg-slate-50 inline-block px-2 py-1 rounded">
+                  {resultFiles.name}
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <button
+                  onClick={() =>
+                    downloadFile(
+                      resultFiles.xlsxBlob,
+                      `converted_${resultFiles.name}.xlsx`
+                    )
+                  }
+                  className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-green-500 bg-green-50 text-green-700 hover:bg-green-100 transition-colors font-medium"
+                >
+                  <FileSpreadsheet size={24} />
+                  <span>Excel 다운로드</span>
+                </button>
+                <button
+                  onClick={() =>
+                    downloadFile(
+                      resultFiles.csvBlob,
+                      `converted_${resultFiles.name}.csv`
+                    )
+                  }
+                  className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-indigo-500 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-colors font-medium"
+                >
+                  <FileDown size={24} />
+                  <span>CSV 다운로드</span>
+                </button>
+              </div>
+              <div className="pt-6 border-t border-slate-100">
+                <button
+                  onClick={() => setResultFiles(null)}
+                  className="text-slate-500 hover:text-slate-800 font-medium text-sm flex items-center justify-center gap-1 mx-auto transition-colors"
+                >
+                  <span>다른 파일 변환하기</span>
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      {/* Modal: Page ID Guide  */}
       {isPageIdModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in">
           <div
@@ -363,8 +473,7 @@ function UploadPage({
           </div>
         </div>
       )}
-
-      {/* Sample image Modal */}
+      {/* Modal: Sample image */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in">
           <div
@@ -394,111 +503,6 @@ function UploadPage({
           </div>
         </div>
       )}
-
-      <div className="bg-white rounded-xl shadow-lg border-t-4 border-t-indigo-500 p-8">
-        <div className="flex flex-col items-center space-y-6">
-          {!isConverting && !resultFiles && (
-            <>
-              <div className="w-24 h-24 bg-indigo-50 rounded-full flex items-center justify-center mb-2 animate-bounce-slow">
-                <Upload size={40} className="text-indigo-600" />
-              </div>
-              <div className="text-center">
-                <h3 className="text-xl font-bold text-slate-800 mb-2">
-                  엑셀 파일 업로드
-                </h3>
-                <p className="text-slate-500 text-sm max-w-xs mx-auto mb-6">
-                  지원 형식: .xlsx, .xls
-                </p>
-                <input
-                  type="file"
-                  accept=".xlsx, .xls"
-                  onChange={handleFileUpload}
-                  className="hidden"
-                  ref={fileInputRef}
-                  id="excel-upload"
-                />
-                <label
-                  htmlFor="excel-upload"
-                  className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg shadow-md transition-all cursor-pointer hover:shadow-lg transform hover:-translate-y-0.5"
-                >
-                  <Upload size={18} />
-                  <span>파일 선택하기</span>
-                </label>
-              </div>
-            </>
-          )}
-          {isConverting && (
-            <div className="w-full max-w-md text-center space-y-6 py-8">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Loader2 size={48} className="animate-spin text-indigo-500" />
-                </div>
-                <div className="w-16 h-16 mx-auto rounded-full border-4 border-indigo-100"></div>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-800">
-                  변환 중입니다...
-                </h3>
-                <p className="text-slate-400 text-sm mt-1">
-                  잠시만 기다려주세요.
-                </p>
-              </div>
-              <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                <div className="h-full bg-indigo-500 animate-progress-indeterminate"></div>
-              </div>
-            </div>
-          )}
-          {resultFiles && !isConverting && (
-            <div className="w-full max-w-md text-center space-y-8 animate-fade-in py-4">
-              <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto border-2 border-green-100">
-                <CheckCircle2 size={40} className="text-green-500" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-slate-800">
-                  변환 완료!
-                </h3>
-                <p className="text-slate-500 mt-1 font-mono text-sm bg-slate-50 inline-block px-2 py-1 rounded">
-                  {resultFiles.name}
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <button
-                  onClick={() =>
-                    downloadFile(
-                      resultFiles.xlsxBlob,
-                      `converted_${resultFiles.name}.xlsx`
-                    )
-                  }
-                  className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-green-500 bg-green-50 text-green-700 hover:bg-green-100 transition-colors font-medium"
-                >
-                  <FileSpreadsheet size={24} />
-                  <span>Excel 다운로드</span>
-                </button>
-                <button
-                  onClick={() =>
-                    downloadFile(
-                      resultFiles.csvBlob,
-                      `converted_${resultFiles.name}.csv`
-                    )
-                  }
-                  className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-indigo-500 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-colors font-medium"
-                >
-                  <FileDown size={24} />
-                  <span>CSV 다운로드</span>
-                </button>
-              </div>
-              <div className="pt-6 border-t border-slate-100">
-                <button
-                  onClick={() => setResultFiles(null)}
-                  className="text-slate-500 hover:text-slate-800 font-medium text-sm flex items-center justify-center gap-1 mx-auto transition-colors"
-                >
-                  <span>다른 파일 변환하기</span>
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
     </div>
   );
 }
@@ -658,20 +662,23 @@ function SearchPage({
     pageCategoryValue !== "" && (!isDirectInput || directPageId.trim() !== "");
 
   return (
-    <div className="relative min-h-[60vh] pb-10">
-      {/* Login Modal */}
+    <div className="space-y-8 animate-fade-in-up relative min-h-[60vh] pb-10">
+      {/* Login Overlay (Modal) */}
       {!isAuthenticated && (
-        <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60 backdrop-blur-md rounded-xl">
-          <div className="bg-white p-8 rounded-2xl shadow-2xl border border-slate-100 w-full max-w-md animate-slide-up">
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-indigo-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Lock className="text-indigo-500" size={32} />
+        <div className="absolute inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4">
+          <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md animate-in fade-in zoom-in duration-300">
+            <div className="text-center mb-8">
+              <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-inner">
+                <Lock size={32} />
               </div>
-              <h2 className="text-2xl font-bold text-slate-800">로그인</h2>
+              <h2 className="text-2xl font-bold text-slate-800">
+                접근 권한 확인
+              </h2>
               <p className="text-slate-500 mt-2 text-sm">
-                서비스 이용을 위해 토큰을 입력해주세요.
+                API 문서 접근을 위해 보안 토큰을 입력해주세요.
               </p>
             </div>
+
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -680,149 +687,161 @@ function SearchPage({
               }}
               className="space-y-4"
             >
-              <div>
+              <div className="relative">
                 <input
                   name="token"
                   type="password"
-                  placeholder="Access Token 입력"
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all text-slate-800 placeholder:text-slate-400"
+                  placeholder="Access Token"
+                  className="w-full pl-4 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all text-slate-800 placeholder:text-slate-400 font-mono text-sm"
                   autoFocus
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg transition-colors shadow-md hover:shadow-lg transform active:scale-[0.98]"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-all shadow-lg shadow-indigo-200 active:scale-[0.98] flex items-center justify-center gap-2"
               >
-                로그인
+                <span>인증하기</span>
               </button>
             </form>
           </div>
         </div>
       )}
 
-      {/* Main Search UI */}
-      <div
-        className={`space-y-6 transition-opacity duration-500 ${
-          isAuthenticated ? "opacity-100" : "opacity-20 pointer-events-none"
-        }`}
-      >
-        {/* Top Bar with Logout Button */}
-        <div className="flex justify-end">
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium px-3 py-2 rounded-lg hover:bg-slate-100"
-          >
-            <LogOut size={16} />
-            로그아웃
-          </button>
-        </div>
-
-        {/* 1. Language Filter */}
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-4">
-          <h3 className="font-bold text-slate-800 flex items-center gap-2">
-            <span className="w-1 h-5 bg-indigo-500 rounded-full"></span>
-            언어 선택
-          </h3>
-          <div className="flex flex-wrap gap-3">
-            {/* 전체 버튼 */}
+      {/* Main Content */}
+      {isAuthenticated && (
+        <div>
+          {/* Logout */}
+          <div className="flex justify-end">
             <button
-              onClick={() => toggleLang("ALL")}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm border transition-all ${
-                selectedLangs.length === SEARCH.LANG_OPTIONS.length
-                  ? "bg-slate-800 border-slate-800 text-white font-medium"
-                  : "bg-white border-slate-300 text-slate-600 hover:bg-slate-50"
-              }`}
+              onClick={handleLogout}
+              className="flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium px-3 py-2 rounded-lg hover:bg-slate-100"
             >
-              {selectedLangs.length === SEARCH.LANG_OPTIONS.length ? (
-                <CheckSquare size={16} />
-              ) : (
-                <Square size={16} />
-              )}
-              전체
+              <LogOut size={16} />
+              로그아웃
             </button>
+          </div>
 
-            {SEARCH.LANG_OPTIONS.map((lang) => {
-              const isSelected = selectedLangs.includes(lang.value);
-              return (
+          {/* Title */}
+          <div className="text-center space-y-2 mb-8">
+            <h1 className="text-3xl font-bold text-slate-800 tracking-tight">
+              Search Multi-Language
+            </h1>
+            <p className="text-slate-500">
+              서버에 업로드된 다국어를 검색합니다.
+            </p>
+          </div>
+
+          {/* Main */}
+          <main
+            className={`space-y-6 transition-opacity duration-500 opacity-100`}
+          >
+            {/* Language Filter */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-4">
+              <h3 className="font-bold text-slate-800 flex items-center gap-2">
+                <span className="w-1 h-5 bg-indigo-500 rounded-full"></span>
+                언어 선택
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {/* 전체 버튼 */}
                 <button
-                  key={lang.value}
-                  onClick={() => toggleLang(lang.value)}
+                  onClick={() => toggleLang("ALL")}
                   className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm border transition-all ${
-                    isSelected
-                      ? "bg-indigo-50 border-indigo-500 text-indigo-700 font-medium"
-                      : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+                    selectedLangs.length === SEARCH.LANG_OPTIONS.length
+                      ? "bg-slate-800 border-slate-800 text-white font-medium"
+                      : "bg-white border-slate-300 text-slate-600 hover:bg-slate-50"
                   }`}
                 >
-                  {isSelected ? (
+                  {selectedLangs.length === SEARCH.LANG_OPTIONS.length ? (
                     <CheckSquare size={16} />
                   ) : (
                     <Square size={16} />
                   )}
-                  {lang.label}
+                  전체
                 </button>
-              );
-            })}
-          </div>
-        </div>
 
-        {/* 2. Search Form */}
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-          <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-6">
-            <span className="w-1 h-5 bg-indigo-500 rounded-full"></span>
-            검색 조건
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
-            {/* Page Category Select */}
-            <div className="lg:col-span-3 space-y-1.5">
-              <label className="text-sm font-medium text-slate-700">
-                Page Name
-              </label>
-              <div className="relative">
-                <select
-                  value={pageCategoryValue}
-                  onChange={(e) => setPageCategoryValue(e.target.value)}
-                  className="w-full pl-3 pr-8 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none appearance-none bg-white text-sm text-slate-800"
-                >
-                  <option value="">선택해주세요</option>
-                  {SEARCH.PAGE_CATEGORIES()?.map((cat, idx) => (
-                    <option key={idx} value={cat.value}>
-                      {cat.name}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 pointer-events-none"
-                  size={16}
-                />
+                {SEARCH.LANG_OPTIONS.map((lang) => {
+                  const isSelected = selectedLangs.includes(lang.value);
+                  return (
+                    <button
+                      key={lang.value}
+                      onClick={() => toggleLang(lang.value)}
+                      className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm border transition-all ${
+                        isSelected
+                          ? "bg-indigo-50 border-indigo-500 text-indigo-700 font-medium"
+                          : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50"
+                      }`}
+                    >
+                      {isSelected ? (
+                        <CheckSquare size={16} />
+                      ) : (
+                        <Square size={16} />
+                      )}
+                      {lang.label}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Page ID Input */}
-            <div className="lg:col-span-2 space-y-1.5">
-              <label
-                className={`text-sm font-medium ${
-                  isDirectInput ? "text-slate-700" : "text-slate-400"
-                }`}
-              >
-                Page ID (직접입력)
-              </label>
-              <input
-                type="text"
-                value={directPageId}
-                onChange={(e) => setDirectPageId(e.target.value)}
-                disabled={!isDirectInput}
-                placeholder={isDirectInput ? "Page ID 입력" : "-"}
-                className={`w-full px-3 py-2.5 rounded-lg border outline-none text-sm transition-colors ${
-                  isDirectInput
-                    ? "border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 bg-white text-slate-800"
-                    : "border-slate-200 bg-slate-100 text-slate-400 cursor-not-allowed"
-                }`}
-              />
-            </div>
+            {/* Search Form */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+              <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-6">
+                <span className="w-1 h-5 bg-indigo-500 rounded-full"></span>
+                검색 조건
+              </h3>
 
-            {/* Trans Code Input */}
-            <div className="lg:col-span-2 space-y-1.5">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
+                {/* Page Category Select */}
+                <div className="lg:col-span-3 space-y-1.5">
+                  <label className="text-sm font-medium text-slate-700">
+                    Page Name
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={pageCategoryValue}
+                      onChange={(e) => setPageCategoryValue(e.target.value)}
+                      className="w-full pl-3 pr-8 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none appearance-none bg-white text-sm text-slate-800"
+                    >
+                      <option value="">선택해주세요</option>
+                      {SEARCH.PAGE_CATEGORIES()?.map((cat, idx) => (
+                        <option key={idx} value={cat.value}>
+                          {cat.name}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 pointer-events-none"
+                      size={16}
+                    />
+                  </div>
+                </div>
+
+                {/* Page ID Input */}
+                <div className="lg:col-span-2 space-y-1.5">
+                  <label
+                    className={`text-sm font-medium ${
+                      isDirectInput ? "text-slate-700" : "text-slate-400"
+                    }`}
+                  >
+                    Page ID (직접입력)
+                  </label>
+                  <input
+                    type="text"
+                    value={directPageId}
+                    onChange={(e) => setDirectPageId(e.target.value)}
+                    disabled={!isDirectInput}
+                    placeholder={isDirectInput ? "Page ID 입력" : "-"}
+                    className={`w-full px-3 py-2.5 rounded-lg border outline-none text-sm transition-colors ${
+                      isDirectInput
+                        ? "border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 bg-white text-slate-800"
+                        : "border-slate-200 bg-slate-100 text-slate-400 cursor-not-allowed"
+                    }`}
+                  />
+                </div>
+
+                {/* TODO: 검색 기능 구현 */}
+                {/* Trans Code Input */}
+                {/* <div className="lg:col-span-2 space-y-1.5">
               <label className="text-sm font-medium text-slate-700">
                 Trans Code
               </label>
@@ -833,10 +852,11 @@ function SearchPage({
                 placeholder="코드 입력"
                 className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none text-sm text-slate-800"
               />
-            </div>
+            </div> */}
 
-            {/* Trans Content Input */}
-            <div className="lg:col-span-3 space-y-1.5">
+                {/* TODO: 검색 기능 구현 */}
+                {/* Trans Content Input */}
+                {/* <div className="lg:col-span-3 space-y-1.5">
               <label className="text-sm font-medium text-slate-700">
                 Trans Contents
               </label>
@@ -847,130 +867,141 @@ function SearchPage({
                 placeholder="내용 입력"
                 className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none text-sm text-slate-800"
               />
+            </div> */}
+
+                {/* Search Button */}
+                <div className="lg:col-span-2">
+                  <button
+                    onClick={handleSearch}
+                    disabled={!isSearchEnabled || isSearching}
+                    className={`w-full font-bold py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm ${
+                      isSearchEnabled && !isSearching
+                        ? "bg-indigo-600 hover:bg-indigo-700 text-white transform active:scale-[0.98]"
+                        : "bg-slate-300 text-slate-500 cursor-not-allowed"
+                    }`}
+                  >
+                    {isSearching ? (
+                      <Loader2 className="animate-spin" size={18} />
+                    ) : (
+                      <SearchIcon size={18} />
+                    )}
+                    검색
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Search Button */}
-            <div className="lg:col-span-2">
-              <button
-                onClick={handleSearch}
-                disabled={!isSearchEnabled || isSearching}
-                className={`w-full font-bold py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm ${
-                  isSearchEnabled && !isSearching
-                    ? "bg-indigo-600 hover:bg-indigo-700 text-white transform active:scale-[0.98]"
-                    : "bg-slate-300 text-slate-500 cursor-not-allowed"
-                }`}
-              >
-                {isSearching ? (
-                  <Loader2 className="animate-spin" size={18} />
-                ) : (
-                  <SearchIcon size={18} />
+            {/* Search Results */}
+            <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+              {/* Header */}
+              <div className="px-6 py-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-bold text-slate-800 flex items-center gap-2">
+                    <Database size={18} className="text-indigo-500" />
+                    검색 결과
+                  </h3>
+                  <p className="text-xs text-slate-500 flex items-center gap-1">
+                    <Copy size={10} />
+                    TRANS CODE, TRANS CONTENT 컬럼의 텍스트를 클릭하여
+                    복사해보세요!
+                  </p>
+                </div>
+                {hasSearched && (
+                  <span className="text-sm font-medium bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm text-slate-600">
+                    Total:{" "}
+                    <span className="text-indigo-600 font-bold">
+                      {searchResults.length}
+                    </span>
+                  </span>
                 )}
-                검색
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* 3. Search Results */}
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-          {/* Header */}
-          <div className="px-6 py-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
-            <div className="flex flex-col gap-1">
-              <h3 className="font-bold text-slate-800 flex items-center gap-2">
-                <Database size={18} className="text-indigo-500" />
-                검색 결과
-              </h3>
-              <p className="text-xs text-slate-500 flex items-center gap-1">
-                <Copy size={10} />
-                TRANS CODE, TRANS CONTENT 컬럼의 텍스트를 클릭하여 복사해보세요!
-              </p>
-            </div>
-            {hasSearched && (
-              <span className="text-sm font-medium bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm text-slate-600">
-                Total:{" "}
-                <span className="text-indigo-600 font-bold">
-                  {searchResults.length}
-                </span>
-              </span>
-            )}
-          </div>
-
-          {/* Table or Placeholder */}
-          {hasSearched ? (
-            searchResults.length > 0 ? (
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm text-left">
-                  <thead className="text-xs text-slate-500 uppercase bg-slate-50 border-b border-slate-200">
-                    <tr>
-                      <th className="px-6 py-3 font-medium w-16 text-center">
-                        No
-                      </th>
-                      <th className="px-6 py-3 font-medium w-32">Lang Name</th>
-                      <th className="px-6 py-3 font-medium w-40">Page ID</th>
-                      <th className="px-6 py-3 font-medium w-48">Trans Code</th>
-                      <th className="px-6 py-3 font-medium">Trans Content</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {searchResults.map((item, index) => (
-                      <tr
-                        key={index}
-                        className="bg-white border-b border-slate-100 hover:bg-slate-50 transition-colors"
-                      >
-                        <td className="px-6 py-4 text-center text-slate-400 font-medium">
-                          {index + 1}
-                        </td>
-                        <td className="px-6 py-4 font-medium text-slate-700">
-                          {item.langName}
-                        </td>
-                        <td className="px-6 py-4 text-slate-600">
-                          {item.pageId}
-                        </td>
-                        <td className="px-6 py-4 text-slate-600 font-mono text-xs">
-                          <div
-                            className="flex items-center gap-2 group cursor-pointer"
-                            onClick={() => handleCopy(item.transCode)}
-                            title="클릭하여 복사"
-                          >
-                            <span>{item.transCode}</span>
-                            <Copy
-                              size={12}
-                              className="text-slate-400 group-hover:text-indigo-500 transition-colors opacity-0 group-hover:opacity-100"
-                            />
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 text-slate-800">
-                          <div
-                            className="flex items-center gap-2 group cursor-pointer"
-                            onClick={() => handleCopy(item.transContent)}
-                            title="클릭하여 복사"
-                          >
-                            <span>{item.transContent}</span>
-                            <Copy
-                              size={12}
-                              className="text-slate-400 group-hover:text-indigo-500 transition-colors opacity-0 group-hover:opacity-100 flex-shrink-0"
-                            />
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
               </div>
-            ) : (
-              <div className="flex flex-col items-center justify-center py-20 text-slate-400 gap-3">
-                <SearchIcon size={48} className="text-slate-200" />
-                <p>검색 결과가 없습니다.</p>
-              </div>
-            )
-          ) : (
-            <div className="flex flex-col items-center justify-center py-20 text-slate-400 gap-3">
-              <SearchIcon size={48} className="text-slate-200" />
-              <p>검색 조건을 입력하고 검색 버튼을 눌러주세요.</p>
+
+              {/* Table or Placeholder */}
+              {hasSearched ? (
+                searchResults.length > 0 ? (
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm text-left">
+                      <thead className="text-xs text-slate-500 uppercase bg-slate-50 border-b border-slate-200">
+                        <tr>
+                          <th className="px-6 py-3 font-medium w-16 text-center">
+                            No
+                          </th>
+                          <th className="px-6 py-3 font-medium w-32">
+                            Lang Name
+                          </th>
+                          <th className="px-6 py-3 font-medium w-40">
+                            Page ID
+                          </th>
+                          <th className="px-6 py-3 font-medium w-48">
+                            Trans Code
+                          </th>
+                          <th className="px-6 py-3 font-medium">
+                            Trans Content
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {searchResults.map((item, index) => (
+                          <tr
+                            key={index}
+                            className="bg-white border-b border-slate-100 hover:bg-slate-50 transition-colors"
+                          >
+                            <td className="px-6 py-4 text-center text-slate-400 font-medium">
+                              {index + 1}
+                            </td>
+                            <td className="px-6 py-4 font-medium text-slate-700">
+                              {item.langName}
+                            </td>
+                            <td className="px-6 py-4 text-slate-600">
+                              {item.pageId}
+                            </td>
+                            <td className="px-6 py-4 text-slate-600 font-mono text-xs">
+                              <div
+                                className="flex items-center gap-2 group cursor-pointer"
+                                onClick={() => handleCopy(item.transCode)}
+                                title="클릭하여 복사"
+                              >
+                                <span>{item.transCode}</span>
+                                <Copy
+                                  size={12}
+                                  className="text-slate-400 group-hover:text-indigo-500 transition-colors opacity-0 group-hover:opacity-100"
+                                />
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 text-slate-800">
+                              <div
+                                className="flex items-center gap-2 group cursor-pointer"
+                                onClick={() => handleCopy(item.transContent)}
+                                title="클릭하여 복사"
+                              >
+                                <span>{item.transContent}</span>
+                                <Copy
+                                  size={12}
+                                  className="text-slate-400 group-hover:text-indigo-500 transition-colors opacity-0 group-hover:opacity-100 flex-shrink-0"
+                                />
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center py-20 text-slate-400 gap-3">
+                    <SearchIcon size={48} className="text-slate-200" />
+                    <p>검색 결과가 없습니다.</p>
+                  </div>
+                )
+              ) : (
+                <div className="flex flex-col items-center justify-center py-20 text-slate-400 gap-3">
+                  <SearchIcon size={48} className="text-slate-200" />
+                  <p>검색 조건을 입력하고 검색 버튼을 눌러주세요.</p>
+                </div>
+              )}
             </div>
-          )}
+          </main>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -1006,8 +1037,10 @@ export default function App() {
       <div className="max-w-4xl mx-auto w-full p-6 mt-4 flex-1">
         {activeIndex === 0 ? (
           <UploadPage showToast={showToast} />
-        ) : (
+        ) : activeIndex === 1 ? (
           <SearchPage showToast={showToast} />
+        ) : (
+          <SwaggerTypePicker showToast={showToast} />
         )}
       </div>
     </div>

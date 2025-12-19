@@ -15,11 +15,8 @@ import {
 } from "lucide-react";
 import StepItem from "../shared/components/StepItem";
 import excelConverter from "../shared/utils/excel-converter";
+import type { PageProps } from "../App";
 const EXAMPLE_IMAGE_URL = "./src/assets/set_pageId_example.png";
-
-interface PageProps {
-  showToast: (type: "success" | "error", text: string) => void;
-}
 
 const LanguageUploader: React.FC<PageProps> = ({ showToast }) => {
   const [isConverting, setIsConverting] = useState(false);

@@ -187,6 +187,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (isLoginModalOpen) document.body.classList.add("scroll--lock");
+    else document.body.classList.remove("scroll--lock");
   }, [isLoginModalOpen]);
   // #endregion
 

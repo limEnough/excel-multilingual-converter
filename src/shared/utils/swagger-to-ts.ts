@@ -1,37 +1,41 @@
-// Swagger JSON에서 schemas/definitions 추출
-export const parseSwaggerToTypes = (spec: any): string => {
-  const definitions = spec.components?.schemas || spec.definitions || {};
-  let output = "";
+interface SwaggerProperty {
+  type?: string;
+  format?: string;
+  $ref?: string;
+  items?: SwaggerProperty;
+  enum?: string[];
+  description?: string;
+  // OpenAPI 3.0+ 호환성 추가
+  oneOf?: SwaggerProperty[];
+  allOf?: SwaggerProperty[];
+}
 
-  Object.keys(definitions).forEach((key) => {
-    const schema = definitions[key];
-    output += `export interface ${key} {\n`;
+interface SwaggerDefinition {
+  type: string;
+  required?: string[];
+  properties?: Record<string, SwaggerProperty>;
+}
 
-    if (schema.properties) {
-      Object.keys(schema.properties).forEach((propKey) => {
-        const prop = schema.properties[propKey];
-        const type = mapType(prop);
-        const optional = !schema.required?.includes(propKey) ? "?" : "";
+interface SwaggerSchema {
+  swagger?: string; // v2
+  openapi?: string; // v3
+  definitions?: Record<string, SwaggerDefinition>; // Swagger 2.0 구조
+  components?: {
+    // OpenAPI 3.0 구조
+    schemas?: Record<string, SwaggerDefinition>;
+  };
+}
 
-        // 주석(Description)이 있으면 추가
-        if (prop.description) {
-          output += `  /** ${prop.description} */\n`;
-        }
-        output += `  ${propKey}${optional}: ${type};\n`;
-      });
-    }
+interface TypeBlock {
+  name: string;
+  code: string;
+}
 
-    output += "}\n\n";
-  });
-
-  return output || "// 파싱할 스키마 정의를 찾을 수 없습니다.";
-};
-
-// 기본 타입을 TS 타입으로 매핑
-const mapType = (prop: any): string => {
+// 1. 단일 속성 타입 변환
+const getTypeScriptType = (prop: SwaggerProperty): string => {
   if (prop.$ref) {
-    // #/components/schemas/User -> User 로 추출
-    return prop.$ref.split("/").pop();
+    // "#/definitions/UserDTO" -> "UserDTO"
+    return prop.$ref.split("/").pop() || "any";
   }
 
   switch (prop.type) {
@@ -39,12 +43,50 @@ const mapType = (prop: any): string => {
     case "number":
       return "number";
     case "string":
-      return prop.format === "date-time" ? "Date" : "string";
+      if (prop.enum) return prop.enum.map((e) => `'${e}'`).join(" | ");
+      return "string";
     case "boolean":
       return "boolean";
     case "array":
-      return `${mapType(prop.items || {})}[]`;
+      return `${getTypeScriptType(prop.items || {})}[]`;
     default:
       return "any";
   }
 };
+
+// 2. 단일 정의(Definition)를 TypeScript Interface 문자열로 변환
+const generateInterface = (name: string, schema: SwaggerDefinition): string => {
+  if (!schema.properties) return `export interface ${name} {}`;
+
+  const props = Object.entries(schema.properties)
+    .map(([propName, propConfig]) => {
+      const isRequired = schema.required && schema.required.includes(propName);
+      const type = getTypeScriptType(propConfig);
+      const description = propConfig.description
+        ? `  /** ${propConfig.description} */\n`
+        : "";
+      return `${description}  ${propName}${isRequired ? "" : "?"}: ${type};`;
+    })
+    .join("\n");
+
+  return `export interface ${name} {\n${props}\n}`;
+};
+
+// 3. 전체 파싱 함수 (객체 배열 형태로 반환)
+const parseSwaggerToTypeBlocks = (swaggerJson: SwaggerSchema): TypeBlock[] => {
+  if (!swaggerJson) return [];
+
+  // Swagger JSON에서 schemas 추출
+  const definitions =
+    swaggerJson.definitions || swaggerJson.components?.schemas || {};
+
+  return Object.entries(definitions).map(([key, value]) => {
+    return {
+      name: key, // 검색 및 식별용 키
+      code: generateInterface(key, value), // 변환된 TS 코드
+    };
+  });
+};
+
+export { getTypeScriptType, generateInterface, parseSwaggerToTypeBlocks };
+export type { SwaggerProperty, SwaggerDefinition, SwaggerSchema, TypeBlock };

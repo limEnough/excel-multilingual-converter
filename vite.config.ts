@@ -6,6 +6,8 @@ export default defineConfig(({ mode }) => {
   // 현재 작업 디렉토리(process.cwd())에서 .env 파일 로드
   const env = loadEnv(mode, process.cwd(), "");
 
+  console.log("🔥 타겟 API 주소:", env.VITE_API_TARGET);
+
   return {
     plugins: [react()],
     server: {

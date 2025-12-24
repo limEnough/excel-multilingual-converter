@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Tab from "./shared/components/Tab";
 import Toast from "./shared/components/Toast";
-import SwaggerTypePicker from "./pages/SwaggerTypePicker";
 import LanguageSearcher from "./pages/LanguageSearcher";
 import LanguageUploader from "./pages/LanguageUploader";
 import { Lock, LogOut } from "lucide-react";
@@ -215,10 +214,8 @@ const App: React.FC = () => {
       <div className="max-w-4xl mx-auto w-full p-6 mt-4 flex-1">
         {activeIndex === 0 ? (
           <LanguageUploader showToast={showToast} token={token} />
-        ) : activeIndex === 1 ? (
-          <LanguageSearcher showToast={showToast} token={token} />
         ) : (
-          <SwaggerTypePicker showToast={showToast} token={token} />
+          <LanguageSearcher showToast={showToast} token={token} />
         )}
       </div>
 
